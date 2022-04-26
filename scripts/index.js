@@ -1,15 +1,25 @@
 function updateThermo(params) {
-    setInterval(updateThermoProgress, 3000);
+    updateThermoProgress();
 }
 
 
 function updateThermoProgress() {
     const text = document.querySelector('.progress-label');
     const progress = document.querySelector('.progress');
-    let val = parseInt(text.textContent.split('%')[0]);
-    val += 1;
-    const newPercenteage = `${val}%`;
-    progress.style.height = newPercenteage
+    let val = 40.00;
+    const initTime = new Date().setHours(10, 00);
+    const now = new Date();
+    const difference = ((now - initTime) / 60000 ) / 15;
+    const add = difference * 0.02 * 100;
+    console.log('difference', difference)
+    console.log('val', val)
+    console.log('add', add)
+
+    val += add;
+
+    const newPercenteage = `${val.toFixed(2)}%`;
+    console.log('newPercenteage', newPercenteage)
+    progress.style.height = newPercenteage;
     text.textContent = newPercenteage;
 }
 
