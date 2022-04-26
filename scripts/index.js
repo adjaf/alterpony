@@ -1,7 +1,8 @@
-function updateThermo(params) {
-    setInterval(updateThermoProgress, 3000);
-}
+const dataOrigin = "https://pastebin.com/raw/qVy6ZWxA";
 
+async function updateThermo(params) {
+    getDataFromAPI();
+}
 
 function updateThermoProgress() {
     const text = document.querySelector('.progress-label');
@@ -14,7 +15,14 @@ function updateThermoProgress() {
 }
 
 async function getDataFromAPI() {
-    const call = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", dataOrigin);
+    xhr.send();
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            console.log(xhr.responseText);
+        }
+    }
 }   
 
 window.onload = updateThermo;
