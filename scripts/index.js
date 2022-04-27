@@ -3,7 +3,7 @@ function updateThermo(params) {
 }
 
 
-function updateThermoProgress() {S
+function updateThermoProgress() {
     const text = document.querySelector('.progress-label');
     const progress = document.querySelector('.progress');
     let val = 80.93;
