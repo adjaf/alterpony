@@ -1,9 +1,9 @@
 function updateThermo(params) {
-   updateThermoProgress();
+    updateThermoProgress();
 }
 
 
-function updateThermoProgress() {
+function updateThermoProgress() {S
     const text = document.querySelector('.progress-label');
     const progress = document.querySelector('.progress');
     let val = 80.93;
@@ -19,9 +19,5 @@ function updateThermoProgress() {
     progress.style.height = newPercenteage;
     text.textContent = newPercenteage;
 }
-
-async function getDataFromAPI() {
-    const call = new XMLHttpRequest();
-}   
 
 window.onload = updateThermo;
